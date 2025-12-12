@@ -16,17 +16,15 @@ print(f"Part 1: {part1}")
 
 
 def consolidate(ranges):
-    overlap = False
     unique_ranges = []
     for start, end in ranges:
         for i, r in enumerate(unique_ranges):
             if r[0] <= start <= r[1]:
                 unique_ranges[i] = (r[0], max(r[1], end))
-                overlap = True
                 break
         else:
             unique_ranges.append((start, end))
-    return unique_ranges, overlap
+    return unique_ranges
 
 
 def valid_count(ranges):
